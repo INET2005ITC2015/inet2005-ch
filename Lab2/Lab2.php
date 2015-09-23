@@ -7,7 +7,9 @@
  */
 
 function createHeading($H, $message) {
-
+    if($H >= 1 && $H <= 6) {
+        echo "<h$H>$message</h$H>";
+    }
 }
 
 ?>
