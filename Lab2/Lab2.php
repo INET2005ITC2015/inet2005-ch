@@ -25,6 +25,7 @@ for($i=1; $i<8; $i++) {
 }// end for loop
 ?>
 
+<hr />
 <h3>Step #2</h3>
 
 <?php
@@ -44,9 +45,15 @@ appendByRef($myString);
 echo $myString . "<br />";
 ?>
 
+<hr />
 <h3>Step #3</h3>
 
 <?php
+$myGlobal = 25;
+function printAge() {
+    echo "You are " . $GLOBALS['myGlobal'] . " years old!";
+}
 
+printAge();
 
 ?>
