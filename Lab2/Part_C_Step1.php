@@ -13,10 +13,10 @@ $inches = $_POST['hInches'];
 $meters = 0.0254 * ((12 * $feet) + $inches);
 
 $fileTmpName = $_FILES['userFile']['tmp_name'];
-$fileOrigName = $_FILES['userFile']['orig_name'];
+$fileOrigName = $_FILES['userFile']['name'];
 $fileSize = $_FILES['userFile']['size'];
 $fileErrorUpload = $_FILES['userFile']['error'];
-$result = move_uploaded_file($fileTmpName, "uploads/" . $fileOrigName);
+$result = move_uploaded_file($fileTmpName, "uploads/$fileOrigName");
 
 echo "<h3>Your first name is $firstName</h3>";
 echo "<h3>Your last name is $lastName</h3>";
