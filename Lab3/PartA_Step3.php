@@ -37,7 +37,6 @@
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr><td>" . $row['title'] . "</td><td>" . $row['description'] . "</td>";
         }
-
         disconnect($db);
     }
     ?>
