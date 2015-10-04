@@ -22,8 +22,6 @@
     $db = mysqli_connect("localhost", "root", "inet2005", "sakila");
     if (!$db) {
         die('Could not connect to the Sakila Database: ' . mysqli_errno($db));
-    } else {
-        echo "<h1>Connection Established</h1>";
     }
 
     $result = mysqli_query($db, "SELECT * FROM film LIMIT 0,10");

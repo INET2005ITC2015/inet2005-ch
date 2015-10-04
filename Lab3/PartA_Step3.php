@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Part A - Step #2</title>
+    <title>Part A - Step #3</title>
     <style>
         table, td, th {
             border: 1px solid black;
@@ -26,11 +26,9 @@
     if (isset($_POST['desc'])) {
         $query = $_POST['desc'];
 
-        $db = mysqli_connect("localhost", "root", "inet2005", "sakila");
+        require_once('dbConnection.php');
 
-        if (!$db) {
-            die('Could not connect to the Sakila Database: ' . mysqli_errno($db));
-        }
+        $db = connectToSakila();
 
         $result = mysqli_query($db, "SELECT * FROM film WHERE description LIKE '%$query%'");
         if (!$result) {
@@ -40,7 +38,7 @@
             echo "<tr><td>" . $row['title'] . "</td><td>" . $row['description'] . "</td>";
         }
 
-        mysqli_close($db);
+        disconnect($db);
     }
     ?>
     </tbody>
