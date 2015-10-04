@@ -29,7 +29,7 @@
         die("Could not retrieve records from the Sakila Databse: " . mysqli_error($db));
     }
     while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr><td>" . $row['title'] . "</td><td>" . $row['description'] . "</td>";
+        echo "<tr><td>" . $row['title'] . "</td><td>" . $row['description'] . "</td></tr>";
     }
     mysqli_close($db);
     ?>
