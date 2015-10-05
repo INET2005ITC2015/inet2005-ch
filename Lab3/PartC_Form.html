@@ -2,18 +2,25 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <script src="formScript.js"></script>
     <title>Form</title>
+    <style>
+        span {
+            visibility: hidden;
+            color: red;
+        }
+    </style>
 </head>
 <body>
-<form>
-    <label>First Name <input type="text" name="firstName" class="textBox" id="fName"></label></br></br>
-    <label>Last Name <input type="text" name="lastName" class="textBox" id="lName"></label></br></br>
-    <label>Address 1 <input type="text" name="addressOne" class="textBox" id="addressOne"></label></br></br>
-    <label>Address 2 <input type="text" name="addressTwo" class="textBox" id="addressTwo"></label></br></br>
-    <label>Email <input type="text" name="email" class="textBox" id="email"></label></br></br>
-    <label>I accept the terms and conditions</label><input type="checkbox" name="terms" id="acceptterms"> <br></br>
-    <input type="submit" value="Update"></br></br>
+<form action="formSubmitted.html" method="post" id="testForm" onsubmit="return validForm()">
+    <label>First Name <input type="text" name="firstName" class="textBox" id="fName"></label><br/><br/>
+    <label>Last Name <input type="text" name="lastName" class="textBox" id="lName"></label><br/><br/>
+    <label>Address 1 <input type="text" name="addressOne" class="textBox" id="addressOne"></label><br/><br/>
+    <label>Address 2 <input type="text" name="addressTwo" class="textBox" id="addressTwo"></label><br/><br/>
+    <label>Email <input type="text" name="email" class="textBox" id="email"></label><br/>
+    <span id="termsError">You must accept the terms</span><br/>
+    <label>I accept the terms and conditions</label><input type="checkbox" name="terms" id="termsAccept"><br/><br/>
+    <input name="" type="submit" id="submitButton"><br/><br/>
 </form>
+<script src="formScript.js"></script>
 </body>
 </html>
