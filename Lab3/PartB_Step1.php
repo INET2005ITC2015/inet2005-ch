@@ -56,5 +56,9 @@
     <p>ID to Delete: <input name="idToDelete" type="text"></p>
     <input name="" type="submit">
 </form>
+<form action="PartB_Step5.php" method="post">
+    <p>ID to Update: <input name="idToUpdate" type="text"></p>
+    <input name="" type="submit">
+</form>
 </body>
 </html>

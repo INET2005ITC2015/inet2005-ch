@@ -7,5 +7,4 @@ if (isset($_POST['idToDelete'])) {
     echo "Affected Rows: " . mysqli_affected_rows($db);
     echo "<br/>";
     echo "<a href='PartB_Step1.php'>Back</a>";
-
 }
