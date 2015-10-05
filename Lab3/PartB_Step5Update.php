@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['submitUpdate'])) {
+if (isset($_POST['idToUpdate']) && isset($_POST['fName']) && isset($_POST['lName'])) {
     $id = $_POST['idToUpdate'];
     $firstName = $_POST['fName'];
     $lastName = $_POST['lName'];
