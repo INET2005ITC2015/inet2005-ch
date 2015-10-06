@@ -22,7 +22,7 @@
     <?php
     require_once('dbConnection.php');
     $db = connectToSakila();
-    if (isset($_POST['firstName']) && isset($_POST['lastName'])) {
+    if (!is_null($_POST['firstName']) && !is_null($_POST['lastName'])) {
         $firstName = $_POST['firstName'];
         $lastName = $_POST['lastName'];
 
