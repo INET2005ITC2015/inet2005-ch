@@ -7,6 +7,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 12pt;
+    font-weight: 300;
     margin:auto;
     padding-top: 50px;
     width: 50%;
@@ -35,4 +36,18 @@ section {
 
 a {
     margin-right: 5px;
+}
+
+a:hover {
+    color: orange;
+}
+
+input:focus {
+    background-color: lightyellow;
+}
+
+input {
+    /*font-size: 10pt;*/
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
 }

@@ -23,6 +23,7 @@
 
     $prevPage = 0;
     $nextPage = 0;
+    $name = "";
 
     if ($page - 25 >= 0) {
         $prevPage = $page - 25;
@@ -61,16 +62,19 @@
             echo "</tr>";
         }
     }
+    disconnect($db);
     ?>
 </table>
 <section>
     <form action="<?php $_SERVER['PHP_SELF'] ?>" method="get" name="searchEmployee">
-        <p>Search Employee First Name or Last Name</p>
-
-        <p>Search: <input type="text" name="name" value="<?= $name ?>"><input name="" type="submit" value="Submit Query"></p>
+        <label>Search Employee First Name or Last Name</label><br/>
+        <label>Search: <input type="text" name="name" value="<?= $name ?>"><input name="" type="submit" value="Submit Query"></label>
     </form>
+    <br/>
     <a href="index.php?page=<?= $prevPage ?>&name=<?= $name ?>">Prev</a>
     <a href="index.php?page=<?= $nextPage ?>&name=<?= $name ?>">Next</a>
+    <br/><br/>
+    <a href="insertEmployee.html">Insert a new employee</a>
 </section>
 </body>
 </html>

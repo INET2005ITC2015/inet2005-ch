@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Insert new employee</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<form id="insertEmployee" action="php/insert.php" method="post" name="insertEmpForm">
+    <label>First Name: <input name="fName" type="text" required></label><br/>
+    <label>Last Name: <input name="lName" type="text" required></label><br/>
+    Gender: <label><input name="gender" type="radio" value="M" checked> Male</label>
+    <label><input name="gender" type="radio" value="F"> Female</label><br/>
+    <label>Birth Date (YYYY-MM-DD): <input type="text" name="birthDate" required></label><br/>
+    <label>Hire Date (YYYY-MM-DD): <input type="text" name="hireDate" required></label><br/>
+    <input name="" type="submit" value="Insert Employee">
+</form>
+<script src="js/scripts.js"></script>
+</body>
+</html>
