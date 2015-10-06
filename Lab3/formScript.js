@@ -45,10 +45,10 @@ for (var i = 0; i < textBoxes.length; i++) {
 }
 
 // WILL NOT WORK!!!!!
-//document.getElementById("testForm").addEventListener("submit", function () {
-//    if(validForm()) {
-//        return true;
-//    } else {
-//        return false;
-//    }
-//});
+document.getElementById("testForm").addEventListener("submit", function (event) {
+    if(validForm()) {
+        return true;
+    } else {
+        event.preventDefault();
+    }
+});
