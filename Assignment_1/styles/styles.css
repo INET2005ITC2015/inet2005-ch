@@ -1,0 +1,38 @@
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12pt;
+    margin:auto;
+    padding-top: 50px;
+    width: 50%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+table {
+    float: left;
+    background-color: grey;
+    margin-right: 20px;
+}
+
+th, td {
+    padding: 0px;
+    background-color: white;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+section {
+    float: left;
+}
+
+a {
+    margin-right: 5px;
+}
