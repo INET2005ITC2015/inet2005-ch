@@ -13,7 +13,7 @@ $(document).ready(function () {
 
 // check to ensure the date is formatted properly
     function validateDate(date) {
-        var regexPattern = /^[0-9]{4}[-]{1}[0-9]{2}[-]{1}[0-9]{2}$/,
+        var regexPattern = /^[0-9]{4}[-][0-9]{2}[-][0-9]{2}$/,
             isValid = true;
         if (!regexPattern.test(date)) {
             isValid = false;
@@ -67,13 +67,13 @@ $(document).ready(function () {
             lName.css({"border-color": "red"});
             isValid = false;
         }
-        var bDay = birthDate.val();
-        if (!validateDate(bDay)) {
+
+        if (!validateDate(birthDate.val())) {
             birthDate.css({"border-color": "red"});
             isValid = false;
         }
-        var hDay = hireDate.val();
-        if (!validateDate(hDay)) {
+
+        if (!validateDate(hireDate.val())) {
             hireDate.css({"border-color": "red"});
             isValid = false;
         }
