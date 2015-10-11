@@ -9,8 +9,11 @@
 <body>
 <table>
     <th>emp_no</th>
+    <th>birth_date</th>
     <th>first_name</th>
     <th>last_name</th>
+    <th>gender</th>
+    <th>hire_date</th>
     <?php
     require_once 'php/dbConn.php';
     $db = connect('employees');
@@ -42,8 +45,15 @@
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
             echo "<td>" . $row['emp_no'] . "</td>";
+            echo "<td>" . $row['birth_date'] . "</td>";
             echo "<td>" . $row['first_name'] . "</td>";
             echo "<td>" . $row['last_name'] . "</td>";
+            echo "<td>" . $row['gender'] . "</td>";
+            echo "<td>" . $row['hire_date'] . "</td>";
+            echo "<td><form action='php/update.php' method='post'>
+            <input type='image' src='img/edit32.png' name='idToUpdate' value=" . $row['emp_no'] . "></form>";
+            echo "<td><form action='php/delete.php' method='post'>
+            <input type='image' src='img/delete32.png' name='idToDelete' value=" . $row['emp_no'] . "></form>";
             echo "</tr>";
         }
     } else {
@@ -57,8 +67,15 @@
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
             echo "<td>" . $row['emp_no'] . "</td>";
+            echo "<td>" . $row['birth_date'] . "</td>";
             echo "<td>" . $row['first_name'] . "</td>";
             echo "<td>" . $row['last_name'] . "</td>";
+            echo "<td>" . $row['gender'] . "</td>";
+            echo "<td>" . $row['hire_date'] . "</td>";
+            echo "<td><form action='php/update.php' method='post'>
+            <input type='image' src='img/edit32.png' name='idToUpdate' value=" . $row['emp_no'] . "></form>";
+            echo "<td><form action='php/delete.php' method='post'>
+            <input type='image' src='img/delete32.png' name='idToDelete' value=" . $row['emp_no'] . "></form>";
             echo "</tr>";
         }
     }
@@ -66,7 +83,7 @@
     ?>
 </table>
 <section>
-    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="get" name="searchEmployee">
+    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="get" name="searchEmployee" autocomplete="off">
         <label>Search Employee First Name or Last Name</label><br/>
         <label>Search: <input type="text" name="name" value="<?= $name ?>"><input name="" type="submit" value="Submit Query"></label>
     </form>

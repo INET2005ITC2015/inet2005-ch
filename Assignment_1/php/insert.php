@@ -24,10 +24,10 @@ $result = mysqli_query($db, "INSERT INTO employees (emp_no, birth_date, first_na
 if (!$result) {
     die ("Could not insert record into the Employees Database: " . mysqli_error($db));
 } else {
-    echo "Employee Inserted";
+    echo "<h5>Employee Inserted</h5><br/>";
 }
 
-echo "<a href='index.php'>Back to index</a>";
-echo "<a href='insertEmployee.html'>Insert another employee</a>";
+echo "<a href='../index.php'>Back to index</a><br/>";
+echo "<a href='../insertEmployee.html'>Insert another employee</a>";
 
 disconnect($db);
