@@ -11,18 +11,18 @@
 <body>
 <form id="insertEmployee" action="php/insert.php" method="post" name="insertEmpForm" autocomplete="off">
     <label class="inputLabel" for="fName">First Name: </label>
-    <input id="fName" name="fName" type="text" required><br/>
+    <input id="fName" name="fName" type="text" required><span id="fNameError">Letters Only!</span><br/>
     <label class="inputLabel" for="lName">Last Name: </label>
-    <input id="lName" name="lName" type="text" required><br/>
+    <input id="lName" name="lName" type="text" required><span id="lNameError">Letters Only!</span><br/>
     <label class="inputLabel">Gender: </label>
     <input id="male" name="gender" type="radio" value="M" checked>
     <label for="male">Male</label>
     <input id="female" name="gender" type="radio" value="F">
     <label for="female">Female</label><br/>
     <label class="inputLabel" for="birthDate">Birth Date (YYYY-MM-DD): </label>
-    <input id="birthDate" type="text" name="birthDate" required><br/>
+    <input id="birthDate" type="text" name="birthDate" required><span id="birthDateError">Enter a valid date in the format of YYYY-MM-DD</span><br/>
     <label class="inputLabel" for="hireDate">Hire Date (YYYY-MM-DD): </label>
-    <input id="hireDate" type="text" name="hireDate" required><br/>
+    <input id="hireDate" type="text" name="hireDate" required><span id="hireDateError">Enter a valid date in the format of YYYY-MM-DD</span><br/>
     <input name="" type="submit" value="Insert Employee">
 </form>
 </body>

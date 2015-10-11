@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../styles/styles.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
     <script src="../js/jquery-2.1.4.js"></script>
-    <script src="../js/updateScript.js"></script>
+    <script src="../js/scripts.js"></script>
 </head>
 <body>
 <?php
@@ -27,18 +27,18 @@ if (!is_null($_POST['idToUpdate'])) {
 ?>
 <form id="updateEmployee" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" name="updateEmpForm" autocomplete="off">
     <label class="inputLabel" for="fName">First Name: </label>
-    <input id="fName" name="fName" type="text" value="<?= $record['first_name'] ?>" required><br/>
+    <input id="fName" name="fName" type="text" value="<?= $record['first_name'] ?>" required><span id="fNameError">Letters Only!</span><br/>
     <label class="inputLabel" for="lName">Last Name: </label>
-    <input id="lName" name="lName" type="text" value="<?= $record['last_name'] ?>" required><br/>
+    <input id="lName" name="lName" type="text" value="<?= $record['last_name'] ?>" required><span id="lNameError">Letters Only!</span><br/>
     <label class="inputLabel">Gender: </label>
     <input id="male" name="gender" type="radio" value="M" <?php if($record['gender'] == "M") {echo "checked";} ?>>
     <label for="male">Male</label>
     <input id="female" name="gender" type="radio" value="F" <?php if($record['gender'] == "F") {echo "checked";} ?>>
     <label for="female">Female</label><br/>
     <label class="inputLabel" for="birthDate">Birth Date (YYYY-MM-DD): </label>
-    <input id="birthDate" type="text" name="birthDate" value="<?= $record['birth_date'] ?>" required><br/>
+    <input id="birthDate" type="text" name="birthDate" value="<?= $record['birth_date'] ?>" required><span id="birthDateError">Enter a valid date in the format of YYYY-MM-DD</span><br/>
     <label class="inputLabel" for="hireDate">Hire Date (YYYY-MM-DD): </label>
-    <input id="hireDate" type="text" name="hireDate" value="<?= $record['hire_date'] ?>" required><br/>
+    <input id="hireDate" type="text" name="hireDate" value="<?= $record['hire_date'] ?>" required><span id="hireDateError">Enter a valid date in the format of YYYY-MM-DD</span><br/>
     <input type="hidden" name="idToUpdate" value="<?= $record['emp_no'] ?>">
     <input name="" type="submit" value="Update Employee">
 </form>

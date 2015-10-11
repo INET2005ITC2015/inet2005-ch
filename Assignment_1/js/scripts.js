@@ -38,51 +38,67 @@ $(document).ready(function () {
         return isValid;
     }
 
-// get and return the value for the checked gender radio button
-    function getGender() {
-        var male = $("#male"),
-            female = $("#female");
-        if (male.prop("checked", true)) {
-            return male.val();
-        } else {
-            return female.val();
-        }
-    }
-
 // validate each section of the forms input
     function validateFormInput() {
         var fName = $("#fName"),
+            fNameEr = $("#fNameError"),
             lName = $("#lName"),
+            lNameEr = $("#lNameError"),
             birthDate = $("#birthDate"),
+            birthDateEr = $("#birthDateError"),
             hireDate = $("#hireDate"),
-            gender = getGender(),
-            isValid = true;
+            hireDateEr = $("#hireDateError"),
+            isValid = true,
+            myColor = "#FF6F6F";
 
         if (!validateName(fName.val())) {
-            fName.css({"border-color": "red"});
+            fName.css({"border-color": myColor});
+            fNameEr.css({"visibility": "visible"});
             isValid = false;
         }
 
         if (!validateName(lName.val())) {
-            lName.css({"border-color": "red"});
+            lName.css({"border-color": myColor});
+            lNameEr.css({"visibility": "visible"});
             isValid = false;
         }
 
         if (!validateDate(birthDate.val())) {
-            birthDate.css({"border-color": "red"});
+            birthDate.css({"border-color": myColor});
+            birthDateEr.css({"visibility": "visible"});
             isValid = false;
         }
 
         if (!validateDate(hireDate.val())) {
-            hireDate.css({"border-color": "red"});
+            hireDate.css({"border-color": myColor});
+            hireDateEr.css({"visibility": "visible"});
             isValid = false;
         }
 
         return isValid;
     }
 
+    function resetErrorDisplay(element) {
+        var id = $(element).attr('id') + "Error",
+            errorField = $("#" + id);
+        $(element).css({"border-color": "white"});
+        $(errorField).css({"visibility": "hidden"});
+    }
+
+    $("input").focus(function (event) {
+        resetErrorDisplay(this);
+    });
+
 
     $("#insertEmployee").on("submit", function (event) {
+        if (validateFormInput()) {
+            return true;
+        } else {
+            event.preventDefault();
+        }
+    });
+
+    $("#updateEmployee").on("submit", function (event) {
         if (validateFormInput()) {
             return true;
         } else {

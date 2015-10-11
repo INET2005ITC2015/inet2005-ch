@@ -70,3 +70,8 @@ tr:nth-child(even) {
 td form input {
     margin: 4px 1px 0px 2px;
 }
+
+form span {
+    color: red;
+    visibility: hidden;
+}
