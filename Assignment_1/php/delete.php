@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>INET2005 - Assignment #1</title>
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="../styles/styles.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 </head>
 <body>

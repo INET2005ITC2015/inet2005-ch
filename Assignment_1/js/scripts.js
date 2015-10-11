@@ -85,7 +85,7 @@ $(document).ready(function () {
         $(errorField).css({"visibility": "hidden"});
     }
 
-    $("input").focus(function (event) {
+    $("input").focus(function () {
         resetErrorDisplay(this);
     });
 
