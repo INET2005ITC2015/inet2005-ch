@@ -27,7 +27,7 @@ if (!$result) {
     echo "<h5>Employee Inserted</h5><br/>";
 }
 
-echo "<a href='../index.php'>Back to index</a><br/>";
+echo "<a href='../main.php'>Back to index</a><br/>";
 echo "<a href='../insertEmployee.html'>Insert another employee</a>";
 
 disconnect($db);

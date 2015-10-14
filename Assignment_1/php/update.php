@@ -68,6 +68,6 @@ if (!is_null($_POST['fName']) && !is_null($_POST['lName']) && !is_null($_POST['h
     }
 }
 ?>
-<a href="../index.php">Back to Index</a>
+<a href="../main.php">Back to Index</a>
 </body>
 </html>

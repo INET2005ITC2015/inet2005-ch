@@ -88,8 +88,8 @@
         <label>Search: <input type="text" name="name" value="<?= $name ?>"><input name="" type="submit" value="Submit Query"></label>
     </form>
     <br/>
-    <a href="index.php?page=<?= $prevPage ?>&name=<?= $name ?>">Prev</a>
-    <a href="index.php?page=<?= $nextPage ?>&name=<?= $name ?>">Next</a>
+    <a href="main.php?page=<?= $prevPage ?>&name=<?= $name ?>">Prev</a>
+    <a href="main.php?page=<?= $nextPage ?>&name=<?= $name ?>">Next</a>
     <br/><br/>
     <a href="insertEmployee.html">Insert a new employee</a>
 </section>

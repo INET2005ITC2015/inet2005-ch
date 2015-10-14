@@ -25,6 +25,6 @@ if($_POST['delConfirm'] == "delete") {
     echo "<h5>Number of Affected Rows: " . $affectedRows . "</h5>";
 }
 ?>
-<a href="../index.php">Back to Index</a>
+<a href="../main.php">Back to Index</a>
 </body>
 </html>

@@ -48,7 +48,7 @@ a:hover {
 }
 
 input:focus {
-    background-color: lightyellow;
+    background-color: #F0FAFF;
 }
 
 input {
