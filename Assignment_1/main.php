@@ -1,3 +1,7 @@
+<?php
+require 'php/loginSession.php';
+checkLogin();
+?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -9,13 +13,27 @@
 <body>
 <a href="php/logout.php">Logout</a>
 <table>
-    <th>emp_no</th>
-    <th>birth_date</th>
-    <th>first_name</th>
-    <th>last_name</th>
-    <th>gender</th>
-    <th>hire_date</th>
+    <th><a href="<?= getSortLink('emp_no') ?>">emp_no</a></th>
+    <th><a href="<?= getSortLink('birth_date') ?>">birth_date</a></th>
+    <th><a href="<?= getSortLink('first_name') ?>">first_name</a></th>
+    <th><a href="<?= getSortLink('last_name') ?>">last_name</a></th>
+    <th><a href="<?= getSortLink('gender') ?>">gender</a></th>
+    <th><a href="<?= getSortLink('hire_date') ?>">hire_date</a></th>
     <?php
+
+    function getSortLink($sort) {
+        $url = "main.php";
+        if(isset($_GET['page']) && isset($_GET['name'])) {
+            $url .= "?page=" . $_GET['page'] . "&name=" . $_GET['name'] . "&sort=" . $sort;
+        } else if (isset($_GET['page'])) {
+            $url .= "?page=" . $_GET['page'] . "&sort=" . $sort;
+        } else if (isset($_GET['name'])) {
+            $url .= "?name=" . $_GET['name'] . "&sort=" . $sort;
+        } else {
+            $url .= "?sort=" . $sort;
+        }
+        return $url;
+    }
     require_once 'php/dbConn.php';
     $db = connect('employees');
 
@@ -37,8 +55,13 @@
         $nextPage = 25;
     }
 
+    $sort="";
+    if (isset($_GET['sort'])) {
+        $sort = " ORDER BY " . $_GET['sort'] . " ASC";
+    }
+
     if (!isset($_GET['name'])) {
-        $result = mysqli_query($db, "SELECT * FROM employees LIMIT $page,25");
+        $result = mysqli_query($db, "SELECT * FROM employees" . $sort . " LIMIT $page,25");
         if (!$result) {
             die ("Could not select record(s) from the Employees Database: " . mysqli_error($db));
         }
@@ -60,7 +83,7 @@
     } else {
         $name = $_GET['name'];
         $result = mysqli_query($db, "SELECT * FROM employees WHERE first_name LIKE '%$name%'
-                  OR last_name LIKE '%$name%' LIMIT $page, 25");
+                  OR last_name LIKE '%$name%'" . $sort . " LIMIT $page, 25");
         if (!$result) {
             die ("Could not select record(s) from the Employees Database: " . mysqli_error($db));
         }

@@ -1,3 +1,7 @@
+<?php
+require 'loginSession.php';
+checkLogin();
+?>
 <!DOCTYPE html>
 <html>
 <head lang="en">

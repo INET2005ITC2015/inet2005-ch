@@ -1,5 +1,8 @@
 <?php
 
+require 'loginSession.php';
+checkLogin();
+
 require_once 'dbConn.php';
 $db = connect('employees');
 
