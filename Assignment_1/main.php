@@ -7,6 +7,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 </head>
 <body>
+<a href="php/logout.php">Logout</a>
 <table>
     <th>emp_no</th>
     <th>birth_date</th>

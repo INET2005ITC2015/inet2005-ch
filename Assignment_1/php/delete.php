@@ -26,5 +26,6 @@ if($_POST['delConfirm'] == "delete") {
 }
 ?>
 <a href="../main.php">Back to Index</a>
+<a href="logout.php">Logout</a>
 </body>
 </html>
