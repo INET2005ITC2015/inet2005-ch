@@ -22,18 +22,43 @@ checkLogin();
     <?php
 
     function getSortLink($sort) {
+        $_GET['direction'] = getSortDirection();
         $url = "main.php";
         if(isset($_GET['page']) && isset($_GET['name'])) {
-            $url .= "?page=" . $_GET['page'] . "&name=" . $_GET['name'] . "&sort=" . $sort;
+            $url .= "?page=" . $_GET['page'] . "&name=" . $_GET['name'] . "&sort=" . $sort . "&direction=" . $_GET['direction'];
         } else if (isset($_GET['page'])) {
-            $url .= "?page=" . $_GET['page'] . "&sort=" . $sort;
+            $url .= "?page=" . $_GET['page'] . "&sort=" . $sort . "&direction=" . $_GET['direction'];
         } else if (isset($_GET['name'])) {
-            $url .= "?name=" . $_GET['name'] . "&sort=" . $sort;
+            $url .= "?name=" . $_GET['name'] . "&sort=" . $sort . "&direction=" . $_GET['direction'];
         } else {
-            $url .= "?sort=" . $sort;
+            $url .= "?sort=" . $sort . "&direction=" . $_GET['direction'];
         }
         return $url;
     }
+
+    function toggleDirection($current) {
+        if ($current == "ASC") {
+            $newDirection = "DESC";
+        } else {
+            $newDirection = "ASC";
+        }
+        return $newDirection;
+    }
+
+    function getSortDirection() {
+        $currentDirection = $_GET['direction'];
+        $newDirection = $_GET['direction'];
+        if ($currentDirection == null) {
+            $newDirection = "ASC";
+//        } else if ($currentDirection == "ASC") {
+//            $newDirection = "DESC";
+//        } else if ($currentDirection == "DESC") {
+//            $newDirection = "ASC";
+//        }
+        }
+        return $newDirection;
+    }
+
     require_once 'php/dbConn.php';
     $db = connect('employees');
 
@@ -56,8 +81,14 @@ checkLogin();
     }
 
     $sort="";
-    if (isset($_GET['sort'])) {
-        $sort = " ORDER BY " . $_GET['sort'] . " ASC";
+    $oldSort;
+    if ((isset($_GET['sort']) && (isset($_GET['direction'])))) {
+        if ($oldSort == $_GET['sort']) {
+            $_GET['direction'] = toggleDirection($_GET['direction']);
+            $sort = " ORDER BY " . $_GET['sort'] . " " . $_GET['direction'];
+        } else {
+            $sort = " ORDER BY " . $_GET['sort'] . " " . $_GET['direction'];
+        }
     }
 
     if (!isset($_GET['name'])) {

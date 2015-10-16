@@ -3,7 +3,7 @@
 $(document).ready(function () {
 // check to ensure the name consists of only alphabetical characters
     function validateName(name) {
-        var regexPattern = /^[a-zA-Z]{2,15}$/,
+        var regexPattern = /^[A-Z][a-z]{2,15}$/,
             isValid = true;
         if (!regexPattern.test(name)) {
             isValid = false;
