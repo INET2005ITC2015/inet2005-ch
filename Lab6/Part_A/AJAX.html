@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="ajax.js"></script>
+    <script type="text/javascript" src="ajaxEmployeeLookUp.js"></script>
+</head>
+<body>
+<form action="" name="searchForm">
+    <label for="searchQuery">Search:</label>
+    <input id="searchQuery" type="text" name="searchExpr" onkeyup="showMatches(this.value);"/>
+
+    <p>Suggestions:<br/>
+        <span id="txtHint"></span>
+    </p>
+</form>
+</body>
+</html>

@@ -9,7 +9,7 @@ function showMatches(str) {
             alert("Your browser does not support XML HTTP!");
             return;
         }
-        var url = "newEmployeeSearcher.php";
+        var url = "../commonFiles/newEmployeeSearcher.php";
         url = url + "?q=" + str;
         url = url + "&sid=" + Math.random();
         xmlHTTP.onreadystatechange = stateChanged;
