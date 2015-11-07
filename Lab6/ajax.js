@@ -3,7 +3,6 @@ function GetXmlHttpObject() {
         return new XMLHttpRequest();
     }
     if (window.ActiveXObject) {     // code for IE6, IE5
-        return new ActiveXObject("Microsoft.XMLHTTP");
+        return new ActiveXObject("Microsoft.XML HTTP");
     }
-    return null;
 }

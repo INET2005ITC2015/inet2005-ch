@@ -1,26 +1,25 @@
-var xmlhttp;
+var xmlHTTP;
 function showMatches(str) {
     if (str.length == 0) {
         document.getElementById("txtHint").innerHTML = "";
-        return;
     }
     else if (str.length > 2) {
-        xmlhttp = GetXmlHttpObject();
-        if (xmlhttp == null) {
-            alert("Your browser does not support XMLHTTP!");
+        xmlHTTP = GetXmlHttpObject();
+        if (xmlHTTP == null) {
+            alert("Your browser does not support XML HTTP!");
             return;
         }
         var url = "newEmployeeSearcher.php";
         url = url + "?q=" + str;
         url = url + "&sid=" + Math.random();
-        xmlhttp.onreadystatechange = stateChanged;
-        xmlhttp.open("GET", url, true);
-        xmlhttp.send(null);
+        xmlHTTP.onreadystatechange = stateChanged;
+        xmlHTTP.open("GET", url, true);
+        xmlHTTP.send(null);
     }
 }
 
 function stateChanged() {
-    if (xmlhttp.readyState == 4) {
-        document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+    if (xmlHTTP.readyState == 4) {
+        document.getElementById("txtHint").innerHTML = xmlHTTP.responseText;
     }
 }
