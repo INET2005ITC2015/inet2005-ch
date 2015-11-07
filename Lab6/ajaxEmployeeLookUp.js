@@ -4,17 +4,19 @@ function showMatches(str) {
         document.getElementById("txtHint").innerHTML = "";
         return;
     }
-    xmlhttp = GetXmlHttpObject();
-    if (xmlhttp == null) {
-        alert("Your browser does not support XMLHTTP!");
-        return;
+    else if (str.length > 2) {
+        xmlhttp = GetXmlHttpObject();
+        if (xmlhttp == null) {
+            alert("Your browser does not support XMLHTTP!");
+            return;
+        }
+        var url = "newEmployeeSearcher.php";
+        url = url + "?q=" + str;
+        url = url + "&sid=" + Math.random();
+        xmlhttp.onreadystatechange = stateChanged;
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send(null);
     }
-    var url = "newEmployeeSearcher.php";
-    url = url + "?q=" + str;
-    url = url + "&sid=" + Math.random();
-    xmlhttp.onreadystatechange = stateChanged;
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send(null);
 }
 
 function stateChanged() {

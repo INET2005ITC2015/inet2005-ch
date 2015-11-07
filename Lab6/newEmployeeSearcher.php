@@ -13,7 +13,7 @@ if (!empty($_GET['q'])) {
 
 
     while ($row = fetchRows()) {
-        echo $row['title'] . "<br/>";
+        echo $row['first_name'] . $row['last_name'] . "<br/>";
     }
 
     closeDB();
