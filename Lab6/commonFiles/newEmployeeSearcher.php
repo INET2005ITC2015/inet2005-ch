@@ -13,7 +13,8 @@ if (!empty($_GET['q'])) {
 
 
     while ($row = fetchRows()) {
-        echo $row['first_name'] . $row['last_name'] . "<br/>";
+        $tooltipText = "Employee ID: {$row['emp_no']}\nHire Date: {$row['hire_date']}";
+        echo "<p class='tooltip' title='{$tooltipText}'>{$row['first_name']} {$row['last_name']}</p>";
     }
 
     closeDB();
