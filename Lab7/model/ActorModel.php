@@ -57,14 +57,34 @@ class ActorModel
         return $fetchedActor;
     }
 
-    public function updateActor($ActorToUpdate)
+    public function updateActor($actorToUpdate)
     {
         $this->m_DataAccess->connectToDB();
 
-        $recordsAffected = $this->m_DataAccess->updateActor($ActorToUpdate->getID(),
-            $ActorToUpdate->getFirstName(),
-            $ActorToUpdate->getLastName());
+        $recordsAffected = $this->m_DataAccess->updateActor($actorToUpdate->getID(),
+            $actorToUpdate->getFirstName(),
+            $actorToUpdate->getLastName());
 
         return "$recordsAffected record(s) updated successfully!";
+    }
+
+    public function insertActor($fName, $lName)
+    {
+        $this->m_DataAccess->connectToDB();
+
+        $recordsAffected = $this->m_DataAccess->insertActor($fName, $lName);
+
+        return "$recordsAffected record inserted successfully!";
+    }
+
+    public function deleteActor($actorToDelete)
+    {
+        $this->m_DataAccess->connectToDB();
+
+        $recordsAffected = $this->m_DataAccess->deleteActor($actorToDelete->getID(),
+            $actorToDelete->getFirstName(),
+            $actorToDelete->getLastName());
+
+        return "$recordsAffected record removed successfully!";
     }
 }

@@ -20,7 +20,7 @@ interface iActorDataModel
 
     public function fetchActorLastName($row);
 
-    public function deleteActor($actorID);
+    public function insertActor($first_name, $last_name);
 
-    public function insertActor($actorID, $first_name, $last_name);
+    public function deleteActor($actorID, $first_name, $last_name);
 }

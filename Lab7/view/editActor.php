@@ -10,7 +10,7 @@
 <form id="formUpdate" name="formUpdate" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <p>
         <label>Actor ID:
-            <input type="text" readonly="readonly" name="editCustId" id="editCustId"
+            <input type="text" readonly="readonly" name="editActorId" id="editActorId"
                    value="<?php echo $currentActor->getID(); ?>"/>
         </label>
     </p>

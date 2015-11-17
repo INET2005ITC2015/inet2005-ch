@@ -40,4 +40,40 @@ class ActorController
 
         include '../view/displayActors.php';
     }
+
+    public function insertAction()
+    {
+        include '../view/insertActor.php';
+    }
+
+    public function commitInsertAction($fName, $lName)
+    {
+        $lastOperationResults = "";
+
+        $lastOperationResults = $this->model->insertActor($fName, $lName);
+
+        $arrayOfActors = $this->model->getAllActors();
+
+        include '../view/displayActors.php';
+    }
+
+    public function deleteAction($actorID)
+    {
+        $currentActor = $this->model->getActor($actorID);
+
+        include '../view/deleteActor.php';
+    }
+
+    public function commitDelete($actorID)
+    {
+        $lastOperationResults = "";
+
+        $currentActor = $this->model->getActor($actorID);
+
+        $lastOperationResults = $this->model->deleteActor($currentActor);
+
+        $arrayOfActors = $this->model->getAllActors();
+
+        include "../view/displayActors.php";
+    }
 }
