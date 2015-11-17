@@ -19,5 +19,10 @@ if (isset($_GET['idUpdate'])) {
         $actorController->commitDelete($_POST['idToDelete']);
     }
 } else {
-    $actorController->displayAction();
+    if (isset($_GET['search'])) {
+        $actorController->displayAction($_GET['search']);
+    } else {
+        $actorController->displayAction(null);
+    }
+
 }

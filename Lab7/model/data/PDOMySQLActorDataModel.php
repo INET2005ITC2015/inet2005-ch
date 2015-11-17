@@ -29,7 +29,7 @@ class PDOMySQLActorDataModel implements iActorDataModel
     {
         // hard-coding for first ten rows
         $start = 190;
-        $count = 30;
+        $count = 25;
 
         $selectStatement = "SELECT * FROM actor";
         $selectStatement .= " LIMIT :start,:count;";
@@ -147,6 +147,23 @@ class PDOMySQLActorDataModel implements iActorDataModel
             return $this->stmt->rowCount();
         } catch (PDOException $ex) {
             die('Could not insert record into Sakila Database via PDO: ' . $ex->getMessage());
+        }
+    }
+
+    public function search($search_string)
+    {
+        $sqlStatement = "SELECT * FROM actor WHERE ";
+        $sqlStatement .= "first_name LIKE '{$search_string}%' ";
+        $sqlStatement .= "OR last_name LIKE '{$search_string}%';";
+        try {
+            $this->stmt = $this->dbConnection->prepare($sqlStatement);
+            $this->stmt->bindParam(':searchString', $search_string, PDO::PARAM_STR);
+
+            $this->stmt->execute();
+
+            return $this->stmt->rowCount();
+        } catch (PDOException $ex) {
+            die('Could not find records in the Sakila Database via PDO: ' . $ex->getMessage());
         }
     }
 }

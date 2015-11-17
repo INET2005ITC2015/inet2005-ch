@@ -23,4 +23,6 @@ interface iActorDataModel
     public function insertActor($first_name, $last_name);
 
     public function deleteActor($actorID, $first_name, $last_name);
+
+    public function search($search_string);
 }

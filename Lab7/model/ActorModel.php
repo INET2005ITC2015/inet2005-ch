@@ -87,4 +87,26 @@ class ActorModel
 
         return "$recordsAffected record removed successfully!";
     }
+
+    public function getActorsLike($searchString)
+    {
+        $this->m_DataAccess->connectToDB();
+
+        $arrayOfActorObjects = array();
+
+        $this->m_DataAccess->search($searchString);
+
+        while ($row = $this->m_DataAccess->fetchActors()) {
+
+            $currentActor = new Actor($this->m_DataAccess->fetchActorID($row),
+                $this->m_DataAccess->fetchActorFirstName($row),
+                $this->m_DataAccess->fetchActorLastName($row));
+
+            $arrayOfActorObjects[] = $currentActor;
+        }
+
+        $this->m_DataAccess->closeDB();
+
+        return $arrayOfActorObjects;
+    }
 }

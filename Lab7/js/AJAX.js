@@ -2,9 +2,9 @@ $(document).ready(function () {
     $('#search').keyup(function () {
         var t = this;
         if (t.value.length > 2) {
-            $("#txtHint").load("../commonFiles/newEmployeeSearcher.php?q=" + t.value);
+            location.href = ("../public/index.php?search=" + t.value);
         } else {
-            $("#txtHint").text("");
+            location.href = ("../public/index.php");
         }
     });
 });

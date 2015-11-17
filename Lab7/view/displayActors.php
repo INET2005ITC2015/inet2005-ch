@@ -6,6 +6,7 @@
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../js/AJAX.js"></script>
 </head>
 <body>
 <div class="container">
@@ -19,7 +20,7 @@
     <h1>Current Actors:</h1><br>
     <a class="btn btn-default" href="<?= $_SERVER['PHP_SELF']; ?>?insert=true">Insert New Employee</a><br><br>
     <label for="search">Search: </label>
-    <input id="search" type="text">
+    <input id="search" type="text" value="<?= $_GET['search'] ?>">
     <table class="table">
         <thead>
         <tr>
