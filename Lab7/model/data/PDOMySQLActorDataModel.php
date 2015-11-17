@@ -75,9 +75,9 @@ class PDOMySQLActorDataModel implements iActorDataModel
 
     public function updateActor($actorID, $first_name, $last_name)
     {
-        $updateStatement = "UPDATE Actor";
+        $updateStatement = "UPDATE actor";
         $updateStatement .= " SET first_name = :firstName,last_name=:lastName";
-        $updateStatement .= " WHERE Actor_id = :actorID;";
+        $updateStatement .= " WHERE actor_id = :actorID;";
 
         try {
             $this->stmt = $this->dbConnection->prepare($updateStatement);
@@ -106,5 +106,48 @@ class PDOMySQLActorDataModel implements iActorDataModel
     public function fetchActorLastName($row)
     {
         return $row['last_name'];
+    }
+
+    /**
+     * @param $actorID
+     * @return mixed
+     */
+    public function deleteActor($actorID)
+    {
+        // TODO: Implement deleteActor() method.
+        $deleteStatement = "DELETE FROM actor WHERE ";
+        $deleteStatement .= "actor_id='{$actorID}';";
+
+        try {
+            $this->stmt = $this->dbConnection->prepare($deleteStatement);
+            $this->stmt->bindParam(':actorID', $actorID, PDO::PARAM_INT);
+
+            $this->stmt->execute();
+
+            return $this->stmt->rowCount();
+        } catch (PDOException $ex) {
+            die("Could not delete actor from Sakila Database via PDO: " . $ex->getMessage());
+        }
+
+    }
+
+    public function insertActor($actorID, $first_name, $last_name)
+    {
+        // TODO: Implement insertActor() method.
+        $insertStatement = "INSERT INTO actor (actor_id, first_name, last_name)";
+        $insertStatement .= " VALUES ('{$actorID}','{$first_name}', '{$last_name}')";
+
+        try {
+            $this->stmt = $this->dbConnection->prepare($insertStatement);
+            $this->stmt->bindParam(':firstName', $first_name, PDO::PARAM_STR);
+            $this->stmt->bindParam(':lastName', $last_name, PDO::PARAM_STR);
+            $this->stmt->bindParam(':actorID', $actorID, PDO::PARAM_INT);
+
+            $this->stmt->execute();
+
+            return $this->stmt->rowCount();
+        } catch (PDOException $ex) {
+            die('Could not insert record into Sakila Database via PDO: ' . $ex->getMessage());
+        }
     }
 }
