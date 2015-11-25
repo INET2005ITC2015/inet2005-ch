@@ -5,17 +5,20 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class PagesController extends Controller {
+class PagesController extends Controller
+{
 
-	//
-    public function about() {
+    //
+    public function about()
+    {
         return view('pages.about')->with([
             'first' => 'Christian',
             'last' => 'Hernon'
         ]);
     }
 
-    public function contact() {
+    public function contact()
+    {
         return view('pages.contact');
     }
 
