@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 class ArticlesController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => 'index']);
+    }
+
     public function index()
     {
         $articles = Article::latest('published_at')->published()->get();
