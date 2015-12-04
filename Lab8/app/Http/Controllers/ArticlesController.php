@@ -13,42 +13,63 @@ class ArticlesController extends Controller
         $this->middleware('auth', ['except' => 'index']);
     }
 
+    /**
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $articles = Article::latest('published_at')->published()->get();
         return view('articles.index', compact('articles'));
     }
 
-    public function show($id)
+    /**
+     * @param Article $article
+     * @return \Illuminate\View\View
+     */
+    public function show(Article $article)
     {
-        $article = Article::findOrFail($id);
-        dd($article->published_at);
         return view('articles.show', compact('article'));
     }
 
 
+    /**
+     * @return \Illuminate\View\View
+     */
     public function create()
     {
         return view('articles.create');
     }
 
 
+    /**
+     * @param ArticleRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function store(ArticleRequest $request)
     {
-        $article = new Article($request->all());
-        Auth::user()->articles()->save($article);
+        Auth::user()->articles()->create($request->all());
+
+        flash('Your article has been created')->important();
+
         return redirect('articles');
     }
 
-    public function edit($id)
+    /**
+     * @param Article $article
+     * @return \Illuminate\View\View
+     */
+    public function edit(Article $article)
     {
-        $article = Article::findOrFail($id);
         return view('articles.edit', compact('article'));
     }
 
-    public function update($id, ArticleRequest $request)
+    /**
+     * @param Article $article
+     * @param ArticleRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function update(Article $article, ArticleRequest $request)
     {
-        $article = Article::findOrFail($id);
         $article->update($request->all());
         return redirect('articles');
     }
