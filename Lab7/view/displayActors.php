@@ -18,7 +18,7 @@
     endif;
     ?>
     <h1>Current Actors:</h1><br>
-    <a class="btn btn-default" href="<?= $_SERVER['PHP_SELF']; ?>?insert=true">Insert New Employee</a><br><br>
+    <a class="btn btn-default" href="<?= $_SERVER['PHP_SELF']; ?>?insert=true">Insert New Actor</a><br><br>
     <label for="search">Search: </label>
     <input id="search" type="text" value="<?= $_GET['search'] ?>">
     <table class="table">

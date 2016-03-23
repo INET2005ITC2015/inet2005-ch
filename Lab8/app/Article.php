@@ -14,16 +14,25 @@ class Article extends Model {
 
     protected $dates = ['published_at'];
 
+    /**
+     * @param $query
+     */
     public function scopePublished($query)
     {
         $query->where('published_at', '<=', Carbon::now());
     }
 
+    /**
+     * @param $query
+     */
     public function scopeUnpublished($query)
     {
         $query->where('published_at', '>', Carbon::now());
     }
 
+    /**
+     * @param $date
+     */
     public function setPublishedAtAttribute($date)
     {
         $this->attributes['published_at'] = Carbon::parse($date);
